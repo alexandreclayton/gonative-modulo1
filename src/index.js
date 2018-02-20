@@ -23,6 +23,11 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  componentDidMount() {
+    console.tron.log("TESTE");
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -30,7 +35,7 @@ export default class App extends Component<Props> {
           Welcome to Divnet TECH!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit App.js
+          To get started, edit App.jses
         </Text>
         <Text style={styles.instructions}>
           {instructions}
