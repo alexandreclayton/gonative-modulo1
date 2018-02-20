@@ -6,7 +6,7 @@
     [
       "module-resolver",
       {
-        "cwd": "babelrs",
+        "cwd": "babelrc",
         "root": [
           "./src"
         ],

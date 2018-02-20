@@ -9,10 +9,10 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
 } from 'react-native';
-import './config/ReactotronConfig';
-import './config/DevToolsConfig';
+import 'config/ReactotronConfig';
+import 'config/DevToolsConfig';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
