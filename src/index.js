@@ -1,65 +1,48 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { View, ScrollView } from 'react-native';
 import 'config/ReactotronConfig';
 import 'config/DevToolsConfig';
+import { styles } from 'styles';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import Header from 'components/Header';
+import Post from 'components/Post';
 
-type Props = {};
-export default class App extends Component<Props> {
 
-  componentDidMount() {
-    console.tron.log("TESTE");
-  }
+export default class App extends Component {
+  state = {
+    posts: [
+      {
+        id: 0, author: 'Alexandre Sette', title: 'Post 001', description: 'TEST TEST TEST TEST',
+      },
+      {
+        id: 1, author: 'Alexandre Sette', title: 'Post 002', description: 'TEST TEST TEST TEST',
+      },
+      {
+        id: 2, author: 'Alexandre Sette', title: 'Post 003', description: 'TEST TEST TEST TEST',
+      },
+      {
+        id: 3, author: 'Alexandre Sette', title: 'Post 004', description: 'TEST TEST TEST TEST',
+      },
+      {
+        id: 4, author: 'Alexandre Sette', title: 'Post 005', description: 'TEST TEST TEST TEST',
+      },
+      {
+        id: 5, author: 'Alexandre Sette', title: 'Post 006', description: 'TEST TEST TEST TEST',
+      },
+      {
+        id: 6, author: 'Alexandre Sette', title: 'Post 006', description: 'TEST TEST TEST TEST',
+      },
+    ],
+  };
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Divnet TECH!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.jses
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+      <View style={styles.mainContainer}>
+        <Header title="GoNative App" />
+        <ScrollView >
+          {this.state.posts.map(p => (<Post key={p.id} data={p} />))}
+        </ScrollView>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
